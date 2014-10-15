@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jopus.iml" filepath="$PROJECT_DIR$/jopus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jogg.iml" filepath="$PROJECT_DIR$/jogg.iml" />
     </modules>
   </component>
 </project>

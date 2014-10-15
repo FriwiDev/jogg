@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="jopus" />
+        <module name="jogg" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jopus" target="1.8" />
+      <module name="jogg" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

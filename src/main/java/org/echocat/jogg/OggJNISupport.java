@@ -3,7 +3,7 @@
  *
  * Version: MPL 2.0
  *
- * echocat JOpus, Copyright (c) 2014 echocat
+ * echocat JOgg, Copyright (c) 2014 echocat
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,7 +19,7 @@ public abstract class OggJNISupport {
     protected OggJNISupport() {}
 
     static {
-        System.loadLibrary("jopus");
+        System.loadLibrary("jogg");
         init();
     }
 

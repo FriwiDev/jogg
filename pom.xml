@@ -3,7 +3,7 @@
   ~
   ~ Version: MPL 2.0
   ~
-  ~ echocat JOpus, Copyright (c) 2014 echocat
+  ~ echocat JOgg, Copyright (c) 2014 echocat
   ~
   ~ This Source Code Form is subject to the terms of the Mozilla Public
   ~ License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -26,7 +26,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.opusVersion>1.1</project.opusVersion>
+        <project.oggVersion>1.3.2</project.oggVersion>
         <version.org.echocat.jomon>1.4.3</version.org.echocat.jomon>
         <version.java>1.8</version.java>
     </properties>
@@ -119,17 +119,13 @@
                     <c>
                         <defines>
                             <define>USE_ALLOCA=1</define>
-                            <define>OPUS_BUILD=1</define>
                             <define>__SSE__=1</define>
-                            <define>PACKAGE_VERSION=\"${project.opusVersion}\"</define>
+                            <define>PACKAGE_VERSION=\"${project.oggVersion}\"</define>
                         </defines>
                         <includes>
                             <include>c/*.c</include>
                             <include>c/ogg/*.c</include>
                         </includes>
-                        <excludes>
-                            <exclude>c/opus/opus_demo.c</exclude>
-                        </excludes>
                         <includePaths>
                             <includePath>${env.JAVA_HOME}/include</includePath>
                             <includePath>${env.JAVA_HOME}/include/win32</includePath>
