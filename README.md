@@ -1,4 +1,4 @@
-jopus
+jogg
 =====
 
-Java binding to native opus encoder/decoder.
+Java binding to native ogg container library.
