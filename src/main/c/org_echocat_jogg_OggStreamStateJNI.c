@@ -62,20 +62,16 @@ JNIEXPORT void JNICALL Java_org_echocat_jogg_OggStreamStateJNI_iovecin
     );
 }
 
-JNIEXPORT void JNICALL Java_org_echocat_jogg_OggStreamStateJNI_pageout
+JNIEXPORT jint JNICALL Java_org_echocat_jogg_OggStreamStateJNI_pageout
     (JNIEnv *env, jclass thisClass, jlong handle, jlong pageHandle) {
 
-    Java_org_echocat_jogg_OggStreamStateJNI_checkResponse(env, "Could not form packets into pages.",
-        ogg_stream_pageout((ogg_stream_state*) handle, (ogg_page*) pageHandle)
-    );
+    return ogg_stream_pageout((ogg_stream_state*) handle, (ogg_page*) pageHandle);
 }
 
-JNIEXPORT void JNICALL Java_org_echocat_jogg_OggStreamStateJNI_pageoutFill
+JNIEXPORT jint JNICALL Java_org_echocat_jogg_OggStreamStateJNI_pageoutFill
     (JNIEnv *env, jclass thisClass, jlong handle, jlong pageHandle, jint nfill) {
 
-    Java_org_echocat_jogg_OggStreamStateJNI_checkResponse(env, "Could not form packets into pages.",
-        ogg_stream_pageout_fill((ogg_stream_state*) handle, (ogg_page*) pageHandle, nfill)
-    );
+     return ogg_stream_pageout_fill((ogg_stream_state*) handle, (ogg_page*) pageHandle, nfill);
 }
 
 JNIEXPORT jint JNICALL Java_org_echocat_jogg_OggStreamStateJNI_flush

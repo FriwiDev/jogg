@@ -41,9 +41,9 @@ final class OggStreamStateJNI extends OggJNISupport {
 
     static native void pagein(long handle, long pageHandle);
 
-    static native void pageout(long handle, long pageHandle);
+    static native int pageout(long handle, long pageHandle);
 
-    static native void pageoutFill(long handle, long pageHandle, int count);
+    static native int pageoutFill(long handle, long pageHandle, int count);
 
     static native int flush(long handle, long pageHandle);
 

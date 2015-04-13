@@ -35,8 +35,8 @@ public class OggSyncStateOutput extends OggSyncStateSupport implements Flushable
         write(_pageOutput);
     }
 
-    public void write(OggPageOutput pageOutput) throws IOException {
-        while (OggStreamStateJNI.flush(pageOutput.streamStateHandle(), pageOutput.handle()) > 0) {
+    private void write(OggPageOutput pageOutput) throws IOException {
+        while (OggStreamStateJNI.pageout(pageOutput.streamStateHandle(), pageOutput.handle()) > 0) {
             write(pageOutput, _delegate);
         }
     }
@@ -57,6 +57,9 @@ public class OggSyncStateOutput extends OggSyncStateSupport implements Flushable
     @Override
     public void close() throws IOException {
         try {
+            if (OggStreamStateJNI.flush(_pageOutput.streamStateHandle(), _pageOutput.handle()) > 0) {
+                write(_pageOutput, _delegate);
+            }
             _delegate.close();
         } finally {
             super.close();
