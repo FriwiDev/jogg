@@ -15,7 +15,6 @@
 package org.echocat.jogg;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 public class OggPageInput extends OggPageSupport implements Iterator<OggPacket> {
 
@@ -28,32 +27,25 @@ public class OggPageInput extends OggPageSupport implements Iterator<OggPacket> 
     protected void init() {
         syncSerialno();
         OggStreamStateJNI.pagein(streamStateHandle(), handle());
-        _hasNext = null;
-        _next = null;
+        read();
     }
 
     @Override
     public boolean hasNext() {
-        if (_hasNext == null) {
-            _next = read();
-            _hasNext = _next != null;
-        }
         return _hasNext;
     }
 
 
     @Override
     public OggPacket next() {
-        if (!hasNext()) {
-            throw new NoSuchElementException();
-        }
-        _hasNext = null;
-        return _next;
+        OggPacket current = _next;
+        read();
+        return current;
     }
 
-    protected OggPacket read() {
-        final OggPacket packet = new OggPacket();
-        return OggStreamStateJNI.packetout(streamStateHandle(), packet.handle()) ? packet : null;
+    protected void read() {
+        _next = new OggPacket();
+        _hasNext = OggStreamStateJNI.packetout(streamStateHandle(), _next.handle());
     }
 
     protected void syncSerialno() {
