@@ -66,7 +66,7 @@ public class OggSyncStateInput extends OggSyncStateSupport implements Iterator<O
             }
         }
 
-        if (result.isEos()) {
+        if (result == null || result.isEos()) {
             _hasNext = false;
         }
 

@@ -73,18 +73,20 @@ public class OggCodecTest {
             long previousPacketNo = -1L;
             while (ssi.hasNext()) {
                 oggPageInput = ssi.next();
-                LOG.info("page no: {}, number of packets: {}, granulepos: {},  bos: {}, eos: {}", oggPageInput.getPageno(), oggPageInput.getNumberOfPackets(), oggPageInput.getGranulepos(), oggPageInput.isBos(), oggPageInput.isEos());
+                // TODO this null check is required if the last page has eos == false
+                if (oggPageInput != null) {
+                    LOG.info("page no: {}, number of packets: {}, granulepos: {},  bos: {}, eos: {}", oggPageInput.getPageno(), oggPageInput.getNumberOfPackets(), oggPageInput.getGranulepos(), oggPageInput.isBos(), oggPageInput.isEos());
 
-                while (oggPageInput.hasNext()) {
-                    oggPacket = oggPageInput.next();
-                    LOG.info("packet: {}", oggPacket.getPacketno());
-                    assertThat(oggPacket.getPacketno(), is(previousPacketNo + 1));
-                    previousPacketNo++;
+                    while (oggPageInput.hasNext()) {
+                        oggPacket = oggPageInput.next();
+                        assertThat(oggPacket.getPacketno(), is(previousPacketNo + 1));
+                        previousPacketNo++;
+                    }
                 }
             }
             assertThat(oggPacket.getPacketno(), is(355L));
         }
-        assertThat(tempFile.length(), is(1039164L));
+        assertThat(tempFile.length(), is(1031982L));
 
     }
 }
