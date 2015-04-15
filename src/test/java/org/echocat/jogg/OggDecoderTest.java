@@ -12,11 +12,8 @@
  * *** END LICENSE BLOCK *****
  ****************************************************************************************/
 
-package jogg;
+package org.echocat.jogg;
 
-import org.echocat.jogg.OggPacket;
-import org.echocat.jogg.OggPageInput;
-import org.echocat.jogg.OggSyncStateInput;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
