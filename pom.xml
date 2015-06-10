@@ -29,6 +29,7 @@
         <project.oggVersion>1.3.2</project.oggVersion>
         <version.org.echocat.jomon>1.4.3</version.org.echocat.jomon>
         <version.java>1.8</version.java>
+        <LIBRARY_PATH>${project.build.directory}/nar/${project.artifactId}-x86-Windows-msvc-jni</LIBRARY_PATH>
     </properties>
 
     <licenses>
