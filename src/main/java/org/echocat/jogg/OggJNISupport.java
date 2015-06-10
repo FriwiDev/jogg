@@ -20,9 +20,6 @@ public abstract class OggJNISupport {
 
     static {
         System.loadLibrary("jogg");
-        init();
     }
-
-    static native void init();
 
 }
