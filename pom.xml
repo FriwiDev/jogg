@@ -278,6 +278,7 @@
                     <output>${project.artifactId}</output>
                     <architecture>x86</architecture>
                     <linker>
+                      <name>g++</name>
                         <options>
                             <option>/LTCG</option>
                             <option>/DEBUG</option>
